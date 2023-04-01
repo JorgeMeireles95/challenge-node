@@ -1,0 +1,31 @@
+{
+  "name": "challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JorgeMeireles95/challenge-node-1.git"
+  },
+  "author": "Jorge Meireles",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JorgeMeireles95/challenge-node-1/issues"
+  },
+  "homepage": "https://github.com/JorgeMeireles95/challenge-node-1#readme",
+  "dependencies": {
+    "consign": "^0.1.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jest": "^29.5.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.2.0",
+    "nodemon": "^2.0.22",
+    "sequelize": "^6.30.0",
+    "sequelize-cli": "^6.6.0"
+  }
+}
