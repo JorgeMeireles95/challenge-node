@@ -1,7 +1,8 @@
-'use strict';
+/* eslint-disable no-unused-vars */
 const {
-  Model
+  Model,
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Tutores extends Model {
     /**
@@ -20,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     telefone: DataTypes.STRING,
     cidade: DataTypes.STRING,
     sobre: DataTypes.TEXT,
-    foto: DataTypes.BLOB
+    foto: DataTypes.BLOB,
   }, {
     sequelize,
     modelName: 'Tutores',

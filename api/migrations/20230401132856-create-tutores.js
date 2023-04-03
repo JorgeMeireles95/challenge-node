@@ -1,4 +1,3 @@
-'use strict';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -7,40 +6,41 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       nome: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       senha: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       telefone: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       cidade: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       sobre: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
       },
       foto: {
-        type: Sequelize.BLOB
+        type: Sequelize.BLOB,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
+  // eslint-disable-next-line no-unused-vars
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Tutores');
-  }
+  },
 };
