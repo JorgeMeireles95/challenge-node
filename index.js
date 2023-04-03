@@ -1,4 +1,4 @@
-const dotenv = require('dotenv').config();
+require('dotenv').config();
 const express = require('express');
 const tutoresRouter = require('./api/routes/tutoresRoute.js');
 const porta = process.env.PORT || 3000;
