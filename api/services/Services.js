@@ -25,7 +25,7 @@ class Services {
   }
 
   async deletarRegistro(id) {
-    return database[this.nomeDoModelo].destroy({ where: { id } });
+    return database[this.model].destroy({ where: { id } });
   }
 }
 
