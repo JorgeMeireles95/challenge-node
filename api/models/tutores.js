@@ -15,9 +15,25 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Tutores.init({
-    nome: DataTypes.STRING,
-    email: DataTypes.STRING,
-    senha: DataTypes.STRING,
+    nome: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: {
+          args: true,
+          msg: 'e-mail não válido',
+        },
+      },
+    },
+    senha: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     telefone: DataTypes.STRING,
     cidade: DataTypes.STRING,
     sobre: DataTypes.TEXT,
