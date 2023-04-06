@@ -1,0 +1,362 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "API challenge Alura",
+        "description": "A API de CRUD de Tutores permite a criação, leitura, atualização e exclusão de informações relacionadas a tutores em um sistema.Os usuários podem realizar a operação de busca por tutores cadastrados no sistema, incluindo filtro por nome, cidade ou outro critério de busca definido pelo desenvolvedor. Além disso, é possível criar novos registros de tutores, atualizar informações existentes e excluir tutores do sistema.A API utiliza os padrões RESTful, com requisições e respostas em formato JSON. Para garantir a segurança das informações, é necessário o uso de autenticação do usuário.Com essa API, é possível desenvolver uma plataforma completa para a gestão de tutores em uma organização, oferecendo facilidade e agilidade na manipulação dos dados e tomada de decisões."
+    },
+    "basePath": "/api",
+    "tags": [
+      {
+        "name": "Tutor",
+        "description": "Operações relacionadas aos tutores"
+      }
+    ],
+    "paths": {
+      "/tutores": {
+        "get": {
+          "tags": [
+            "tutores"
+          ],
+          "summary": "Retorna a lista de tutores",
+          "responses": {
+            "200": {
+              "description": "Lista de tutores",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome":
+                    {
+                        "type": "string",
+                        "example":"Jorge",
+                        "nullable": true
+                    },
+                    "email": {
+                        "type": "string",
+                        "example":"jorgeantoniomeireles@gmail.com",
+                        "nullable": true
+                    },
+                    "senha": {
+                        "type": "string",
+                        "example":"123456",
+                        "nullable": true
+                       
+                    },
+                    "telefone": {
+                        "type": "string",
+                        "example":"21123456789",
+                        "nullable": true
+                       
+                    },
+                    "cidade": {
+                        "type": "string",
+                        "example":"Nova Iguaçu",
+                        "nullable": true
+                       
+                    },
+                    "sobre": {
+                        "type": "string",
+                        "example":"Olá, meu é X e bla bla bla",
+                        "nullable": true
+                       
+                    },
+                    "foto": {
+                        "type": "string",
+                        "format":"binary",
+                        "nullable": true
+                       
+                    }
+
+                },
+                "items": {
+                  "$ref": "#/definitions/User"
+                }
+              }
+            }
+          }
+        }
+      },
+
+
+
+
+
+      "/tutor": {
+        "post": {
+          "tags": [
+            "tutor"
+          ],
+          "summary": "Retorna um json confirmando a criação do tutor",
+          "responses": {
+            "201": {
+              "description": "criar um novo tutor",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome":
+                    {
+                        "type": "string",
+                        "example":"Jorge",
+                        "nullable": true
+                    },
+                    "email": {
+                        "type": "string",
+                        "example":"jorgeantoniomeireles@gmail.com",
+                        "nullable": true
+                    },
+                    "senha": {
+                        "type": "string",
+                        "example":"123456",
+                        "nullable": true
+                       
+                    },
+                    "telefone": {
+                        "type": "string",
+                        "example":"21123456789",
+                        "nullable": true
+                       
+                    },
+                    "cidade": {
+                        "type": "string",
+                        "example":"Nova Iguaçu",
+                        "nullable": true
+                       
+                    },
+                    "sobre": {
+                        "type": "string",
+                        "example":"Olá, meu é X e bla bla bla",
+                        "nullable": true
+                       
+                    },
+                    "foto": {
+                        "type": "string",
+                        "format":"binary",
+                        "nullable": true
+                       
+                    }
+
+                },
+                "items": {
+                  "$ref": "#/definitions/User"
+                }
+              }
+            }
+          }
+        }
+      },
+
+
+
+
+      "/tutorExcluir/{id}": {
+        "delete": {
+          "tags": [
+            "Tutor"
+          ],
+          "summary": "Excluir um tutor pelo ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Apaga um tutor pelo ID",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+         
+          "responses": {
+            "200": {
+              "description": "Tutor apagado com sucesso"
+            },
+            "404": {
+              "description": "Tutor não encontrado"
+            }
+          }
+        }
+      },
+
+      "/tutorId/{id}": {
+        "get": {
+          "tags": [
+            "Tutor"
+          ],
+          "summary": "Traz um tutor pelo ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Encontrar um tutor pelo ID",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "requestBody": {
+            "description": "Dados do tutor a serem atualizados",
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/Tutor"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Tutor atualizado com sucesso"
+            },
+            "404": {
+              "description": "Tutor não encontrado"
+            }
+          }
+        }
+      },
+
+
+
+
+
+
+
+
+
+
+
+      "/tutorAtualizaId/{id}": {
+        "put": {
+          "tags": [
+            "Tutor"
+          ],
+          "summary": "Atualiza um tutor pelo ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID do tutor a ser atualizado",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "requestBody": {
+            "description": "Dados do tutor a serem atualizados",
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/Tutor"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Tutor atualizado com sucesso"
+            },
+            "404": {
+              "description": "Tutor não encontrado"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Tutor": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+            "senha": {
+                "type": "string"
+            },
+            "telefone": {
+                "type": "string"
+            },
+            "cidade":{
+                "type": "string"
+            },
+            "sobre":{
+                "type": "string",
+                "description": "Um texto sobre o tutor"
+            },
+            "foto":{
+                "type": "string",
+                "format": "binary"
+            }
+            }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+}
+    
+  
